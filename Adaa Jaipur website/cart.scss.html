@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5dc; /* Beige */
+    margin: 0;
+    padding: 0;
+  }
+ 
+  header {
+    background-color: #f8d8d1; /* Lavender Blush */
+    color: #333;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 5px solid #f5f5dc;
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px; /* Adjust the size as needed */
+    font-weight: 700; /* Makes it bold */
+  }
+ 
+  #cart, #checkout-section, #order-confirmation {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #fff7f4; /* Soft beige */
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+ 
+  #cart-items {
+    margin-bottom: 20px;
+  }
+ 
+  button {
+    padding: 10px 20px;
+    background-color: #f8d8d1; /* Lavender Blush */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+ 
+  button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+  }
+ 
+  button:hover {
+    background-color: #e5b2b2; /* Light Lavender Blush */
+  }
+ 
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+ 
+  textarea {
+    resize: none;
+  }
+ 
+  a {
+    color: #f8d8d1;
+  }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Your Cart</h1>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+
+  </header>
+
+
+  <section id="products">
+    <!-- Product list here (same as before) -->
+  </section>
+
+
+  <section id="cart">
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <p>Total: ₹<span id="total-price">0</span></p>
+    <p>Discount: ₹<span id="discount-price">0</span></p>
+    <p>Final Price: ₹<span id="final-price">0</span></p>
+    <button id="checkout" onclick="checkout()" disabled>Proceed to Checkout</button>
+  </section>
+
+
+  <!-- Checkout Form -->
+  <section id="checkout-section" style="display:none;">
+    <h2>Checkout</h2>
+    <form id="order-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required><br><br>
+     
+      <label for="address">Address:</label>
+      <textarea id="address" required></textarea><br><br>
+
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" pattern="[0-9]{10}" placeholder="1234567890" required><br><br>
+
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" required><br><br>
+     
+      <button type="button" onclick="submitOrder()">Submit Order</button>
+    </form>
+  </section>
+
+
+  <!-- Order Confirmation -->
+  <section id="order-confirmation" style="display:none;">
+    <h2>Order Confirmation</h2>
+    <p><strong>Order Number:</strong> <span id="order-number">N/A</span></p>
+    <div id="order-summary"></div>
+    <p>Track your order: <a id="tracking-link" href="" target="_blank">Track here</a></p>
+  </section>
+
+
+  <script src="scripts.js"></script>
+</body>
+</html>
